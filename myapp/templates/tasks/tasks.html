@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+
+<h1>Tasks</h1>
+<!--Comentario que se ve en HTML -->
+ {# note: this is a comment #}
+
+{% for task in tasks %}
+<div>
+   
+    <h1> {% if task.done %}
+     ✅
+    {% else %} 
+    ⌛
+    {% endif %} 
+    
+    {{ task.title }}</h1>
+   
+    <p>{{ task.description }}</p>
+    <p>Project: {{ task.project.name }}</p>
+    <button>
+        Delete
+    </button>
+    <button>
+       ✅ Done
+    </button>
+</div>
+{% endfor %}
+
+{% endblock %}
